@@ -31,14 +31,14 @@ Run(); // 실행
     void Move() // 핵심 자동차 움직이기
     {
         if (right) { // 좌우 결정
-            if (rand() % 10 == 1) // 생성한 렌덤수가 1이면 mave car
+            if (rand() % 10 == 1) // 생성한 렌덤수가 1이면 move car
                 cars.push_front(true);
             else
                 cars.push_front(false);
             cars.pop_back();
         }
         else {
-            if (rand() % 10 == 1) // 생성한 렌덤수가 1이면 mave car
+            if (rand() % 10 == 1) // 생성한 렌덤수가 1이면 move car
                 cars.push_back(true);
             else
                 cars.push_back(false);
