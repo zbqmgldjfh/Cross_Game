@@ -26,3 +26,41 @@ Run(); // 실행
 
 <img src = "https://user-images.githubusercontent.com/60593969/104868766-ae05ba00-5987-11eb-9712-fafc6da34642.png" width="350px">
 
+## Move()
+```C++
+    void Move() // 핵심 자동차 움직이기
+    {
+        if (right) { // 좌우 결정
+            if (rand() % 10 == 1) // 생성한 렌덤수가 1이면 mave car
+                cars.push_front(true);
+            else
+                cars.push_front(false);
+            cars.pop_back();
+        }
+        else {
+            if (rand() % 10 == 1) // 생성한 렌덤수가 1이면 mave car
+                cars.push_back(true);
+            else
+                cars.push_back(false);
+            cars.pop_front();
+        }
+    }
+```
+
+위의 함수는 장애물들이 random하게 이동하는 것을 구현한 부분입니다.   
+if(right) 부분을 통하여 좌우 방향이 달라지도록 하였습니다.   
+
+장애물이 끊임없이 움직이는 것 은 아닙니다.
+```C++
+if (rand() % 10 == 1)
+    cars.push_front(true)
+else
+    cars.push_front(false);
+```
+
+위의 조건문을 통하여 1이 나오는 경우에만 장애물들이 움직이도록 설정하였습니다.   
+만약 조건문이 true라면, cars.push_front(true)를 통하여 화면 왼쪽에서 장애물이 추가됩니다.   
+따라서 deque 한줄이 전체적으로 오른쪽으로 swift될것 입니다.
+
+**아래 코드를 통하여 Move()의 적용 결과를 확인가능**
+<img src = "pictures/2.Move().png" width="650px">
