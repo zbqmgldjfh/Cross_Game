@@ -64,3 +64,41 @@ else
 
 **아래 코드를 통하여 Move()의 적용 결과를 확인가능**
 <img src = "pictures/2.Move().png" width="650px">
+
+## Draw()
+전체적인 모습을 그리는 함수
+
+```C++
+void Draw()
+{
+    system("cls");
+    for (int i(0); i < numberOfLanes; i++)
+    {
+        for (int j(0); j < width; j++) // X축이라 생각하자
+        {
+            if (i == 0 && (j == 0 || j == width - 1)) cout << 'S'; // 시작첫줄
+            if (i == numberOfLanes - 1 && (j == 0 || j == width - 1)) cout << 'F'; // 도착줄
+                // 첫줄과 마지막줄은 장애물 없음
+            if (map[i]->CheckPos(j) && i != 0 && i != numberOfLanes - 1) // 위치에서 true라면
+                cout << "#";
+            else if (player->x == j && player->y == i) // plaer 위치
+                cout << "V";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+    cout << "Score: " << score << endl;
+}
+```
+시작지점(S)과 결승지점(F)에는 장애물을 출력하지 않습니다.
+
+```C++
+   if (map[i]->CheckPos(j) && i != 0 && i != numberOfLanes - 1) // 위치에서 true라면
+      cout << "#";
+```
+위의 코드처럼 i, j위치에서 CheckPos를 통하여 bool값을 확인하구, 첫줄과 마지막 줄이 아니라면 장애물이 출력됩니다.
+
+<img src = "pictures/3.draw().png" width="650px">
+
+**나머지 간단한 부분은 코드의 주석확인 부탁드립니다**
